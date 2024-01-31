@@ -11,23 +11,25 @@ class FutureProviderScreen extends ConsumerWidget {
     final AsyncValue state = ref.watch(mutipleFutureProvider);
 
     return DefaultLayout(
-        title: 'FutureProviderScreen',
-        body: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              state.when(
-                data: (data) {
-                  return Text(
-                    data.toString(),
-                    textAlign: TextAlign.center,
-                  );
-                },
-                error: (err, stack) => Text(err.toString()),
-                loading: () => const Center(
-                  child: CircularProgressIndicator(),
-                ),
-              ),
-            ]));
+      title: 'FutureProviderScreen',
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          state.when(
+            data: (data) {
+              return Text(
+                data.toString(),
+                textAlign: TextAlign.center,
+              );
+            },
+            error: (err, stack) => Text(err.toString()),
+            loading: () => const Center(
+              child: CircularProgressIndicator(),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
