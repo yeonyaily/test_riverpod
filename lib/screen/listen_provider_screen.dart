@@ -27,8 +27,9 @@ class _ListenProviderScreenState extends ConsumerState<ListenProviderScreen>
   @override
   Widget build(BuildContext context) {
     ref.listen<int>(listenProvider, (previous, next) {
-      print(previous);
-      print(next);
+      if (previous != next) {
+        controller.animateTo(next);
+      }
     });
     return DefaultLayout(
       title: 'ListenProviderScreen',
