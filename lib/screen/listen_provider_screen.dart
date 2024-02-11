@@ -21,6 +21,7 @@ class _ListenProviderScreenState extends ConsumerState<ListenProviderScreen>
     controller = TabController(
       length: 10,
       vsync: this,
+      initialIndex: ref.read(listenProvider),
     );
   }
 
